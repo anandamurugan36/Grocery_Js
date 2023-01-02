@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My cart</title>
+    <link rel="stylesheet" href="D:\anand\Grocery managment\Grocery managment\src\css\home.css">
+    <link rel="stylesheet" href="D:\anand\Grocery managment\Grocery managment\src\css\myCart.css">
+    <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
+</head>
+<body id="myCartBody">
+    <nav class="nav-header">
+        <div class="nav-logo">
+            <lord-icon src="https://cdn.lordicon.com/qwzdhaoa.json" trigger="loop" delay="2000" style="width:50px;height:46px; margin: 0px; "></lord-icon>
+        </div>
+        <div class="nav-searchBar">
+            <div>Your Cart</div>
+        </div>
+        <div class="nav-options">
+            <ul>
+                <li id="home"><a href="D:\anand\Grocery managment\Grocery managment\src\html\home.html">Home</a></li>
+                <li id="myCart"><a href="D:\anand\Grocery managment\Grocery managment\src\html\myCart.html">My Cart</a></li>
+                <li id="myAcc"><a href="D:\anand\Grocery managment\Grocery managment\src\html\myAccount.html">My Account</a></li>
+                <li><a onclick="clearStorage()">Clear Storage</a></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 style="text-align: center; margin-top: 50px;">Your saved groceries to cart</h1>
+    <div id="myCart-container">
+
+    </div>
+</body>
+<script src="D:\anand\Grocery managment\Grocery managment\src\script\home.js"></script>
+<script src="D:\anand\Grocery managment\Grocery managment\src\script\Util.js"></script>
+<script src="D:\anand\Grocery managment\Grocery managment\src\script\sessionStorage.js"></script>
+<script src="D:\anand\Grocery managment\Grocery managment\src\script\myCart.js"></script>
+</html>
