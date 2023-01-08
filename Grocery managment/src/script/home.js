@@ -29,30 +29,22 @@ function renderGrocertTab(groceryData) {
     if(!mainConatiner){return}
     mainConatiner.innerHTML = "";
 	
-	const xhr = new XMLHttpRequest();
+	var xhr = new XMLHttpRequest();
+	var url = 'http://localhost:40640/Grocery/api/getCategory';
+	xhr.open('GET', url, true);
 	xhr.onreadystatechange = function() {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-    console.log(xhr.responseText);
-	console.log("Success");
-	}
-	else{
-		console.log(xhr.responseText);
-		console.log("Fail");
-	}
-	};
-
-	xhr.open('POST', 'http://localhost:40640/Grocery/api/AdminSignUp');
-	xhr.send();
-    for (var i = 0; i < groceryData.length; i++) {
-        let data = groceryData[i];
+		var groceryItems = JSON.parse(xhr.responseText);
+		for (var i = 0; i < groceryItems.groceryItems.length; i++) {
+		var data = groceryItems.groceryItems[i];
         let groceryTab = document.createElement("div");
         groceryTab.setAttribute("class", "grocery-tab");
         groceryTab.setAttribute("id", "grocery-tab-" + data.id.toString());
 
         let imgElement = document.createElement("img");
         imgElement.setAttribute("class", "grocery-img");
-        if(data.img){
-        imgElement.setAttribute("class", data.img);
+        if(data.image){
+        imgElement.setAttribute("src", data.image);
         } else{
         imgElement.src = "https://cdn.lordicon.com/qwzdhaoa.json";
         }
@@ -76,6 +68,9 @@ function renderGrocertTab(groceryData) {
         groceryTab.appendChild(options);
         mainConatiner.appendChild(groceryTab);
     }
+	}
+	};
+	xhr.send();
 }
 
 const groceryData = [{ id: 01, groceryName: "Juice", price: 10, type: "snacks" }, { id: 02, groceryName: "Cookies", price: 20, type: "snacks"}, { id: 03, groceryName: "Egg", price: 10, type: "dairy" },
